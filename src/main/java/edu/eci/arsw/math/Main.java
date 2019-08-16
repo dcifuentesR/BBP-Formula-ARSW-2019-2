@@ -14,10 +14,11 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String a[]) throws InterruptedException {
-        System.out.println(bytesToHex(PiDigits.getDigitsThreaded(0, 10, 1)));
-        System.out.println(bytesToHex(PiDigits.getDigitsThreaded(1, 100, 2)));
+        System.out.println(Runtime.getRuntime().availableProcessors());
+        System.out.println(bytesToHex(PiDigits.getDigitsThreaded(0, 10, 8)));
+        System.out.println(bytesToHex(PiDigits.getDigitsThreaded(1, 100, 8)));
 //        System.out.println(bytesToHex(PiDigits.getDigits(1, 50000, 25)));
-        System.out.println(bytesToHex(PiDigits.getDigitsThreaded(1, 1000000, 200)));
+        System.out.println(bytesToHex(PiDigits.getDigitsThreaded(1, 50000, 8)));
     }
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
