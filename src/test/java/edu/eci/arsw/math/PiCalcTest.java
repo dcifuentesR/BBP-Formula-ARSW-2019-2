@@ -39,7 +39,7 @@ public class PiCalcTest {
 
         for (int start = 0; start < expected.length; start++) {
             for (int count = 0; count < expected.length - start; count++) {
-                byte[] digits = PiDigits.getDigits(start, count, 4);
+                byte[] digits = PiDigits.getDigits(start, count);
                 assertEquals(count, digits.length);
 
                 for (int i = 0; i < digits.length; i++) {
@@ -47,6 +47,27 @@ public class PiCalcTest {
                 }
             }
         }
+    }
+    
+    @Test
+    public void threadedPiGenTest() throws Exception{
+        assertArrayEquals(PiDigits.getDigits(0, 10), PiDigits.getDigitsThreaded(0, 10, 2));
+        
+        assertArrayEquals(PiDigits.getDigits(0, 100), PiDigits.getDigitsThreaded(0, 100, 5));
+        assertArrayEquals(PiDigits.getDigits(0, 100), PiDigits.getDigitsThreaded(0, 100, 10));
+        
+        assertArrayEquals(PiDigits.getDigits(0, 1000), PiDigits.getDigitsThreaded(0, 1000, 1));
+        assertArrayEquals(PiDigits.getDigits(0, 1000), PiDigits.getDigitsThreaded(0, 1000, 5));
+        assertArrayEquals(PiDigits.getDigits(0, 1000), PiDigits.getDigitsThreaded(0, 1000, 10));
+        assertArrayEquals(PiDigits.getDigits(0, 1000), PiDigits.getDigitsThreaded(0, 1000, 50));
+        assertArrayEquals(PiDigits.getDigits(0, 1000), PiDigits.getDigitsThreaded(0, 1000, 100));
+        
+        assertArrayEquals(PiDigits.getDigits(6, 1000), PiDigits.getDigitsThreaded(6, 1000, 1));
+        assertArrayEquals(PiDigits.getDigits(6, 1000), PiDigits.getDigitsThreaded(6, 1000, 5));
+        assertArrayEquals(PiDigits.getDigits(6, 1000), PiDigits.getDigitsThreaded(6, 1000, 10));
+        assertArrayEquals(PiDigits.getDigits(6, 1000), PiDigits.getDigitsThreaded(6, 1000, 50));
+        assertArrayEquals(PiDigits.getDigits(6, 1000), PiDigits.getDigitsThreaded(6, 1000, 100));
+        
     }
 
 }

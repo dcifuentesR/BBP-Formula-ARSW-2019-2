@@ -13,21 +13,19 @@ public class piThread extends Thread {
         private static int DigitsPerSum = 8;
         private static double Epsilon = 1e-17;
         private int start;
-        private int range;
-        private int arrayIndex;
+        private int count;
         byte[] digits;
 
-        public piThread(int start, int arrayIndex, int range, byte[] digits) {
+        public piThread(int start, int count, byte[] digits) {
             this.start = start;
-            this.range = range;
+            this.count = count;
             this.digits = digits;
-            this.arrayIndex = arrayIndex;
         }
         
         public void run(){
             double sum = 0;
 
-            for (int i = arrayIndex; i < arrayIndex + range; i++) {
+            for (int i = 0; i < count; i++) {
                 if (i % DigitsPerSum == 0) {
                     sum = 4 * sum(1, start)
                             - 2 * sum(4, start)
