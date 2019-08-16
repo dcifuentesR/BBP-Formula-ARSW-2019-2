@@ -26,6 +26,6 @@ However, when using the *start()* method, the function will be executed in a thr
   
 **8 threads :** (The number of prossessing cores)
   * Total time : 25.850s
-  * CPU : ![Click here](https://imgur.com/AuBjIRg)
+  * CPU : ![Click here](https://i.imgur.com/AuBjIRg.png)
   * Memory : 12MB
   * Threads : 12
